@@ -1,0 +1,24 @@
+{
+  "name": "zoom-talkto-chatgpt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"cd ./backend && yarn start\" \"cd ./client && yarn start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nakullondhe/zoom-talkTo-ChatGPT.git"
+  },
+  "author": "Nakul Londhe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nakullondhe/zoom-talkTo-ChatGPT/issues"
+  },
+  "homepage": "https://github.com/nakullondhe/zoom-talkTo-ChatGPT#readme",
+  "dependencies": {
+    "concurrently": "^8.2.0",
+    "express": "^4.18.2"
+  }
+}

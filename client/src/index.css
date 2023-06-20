@@ -1,0 +1,56 @@
+
+#audio_playback {
+  display: none;
+}
+
+.wrapper {
+  width: 100%;
+  padding-top: 50px;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.button {
+  margin: 0 10px;
+  width: 100px;
+  border-radius: 5px;
+  color: white;
+}
+
+.start_button {
+  background-color: #4caf50;
+}
+
+.stop_button {
+  background-color: #f44336;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mic_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.button_container {
+  width: 100%;
+  height: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.bot_says {
+  margin-top: 20px;
+}
