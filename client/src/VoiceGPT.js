@@ -5,7 +5,7 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import mic from "./mic.png";
 
-const socket = require("socket.io-client")("http://localhost:5000");
+const socket = require("socket.io-client")("https://talktogpt.onrender.com");
 
 const VoiceGPT = () => {
   const [botState, setBotState] = React.useState("idle"); // idle, processing, speaking
