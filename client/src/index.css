@@ -28,6 +28,14 @@ img {
   background-color: #f44336;
 }
 
+.pause_button {
+  background-color: #ff9800;
+}
+
+.reset_button {
+  background-color: #2196f3;
+}
+
 .container {
   display: flex;
   flex-direction: column;

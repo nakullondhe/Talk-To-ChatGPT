@@ -5,8 +5,8 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import mic from "./mic.png";
 
-// const socketURL = "http://localhost:5000";
-const socketURL = "https://talktogpt.onrender.com";
+const socketURL = "http://localhost:5000";
+// const socketURL = "https://talktogpt.onrender.com";
 
 const socket = require("socket.io-client")(socketURL);
 
@@ -16,9 +16,8 @@ const VoiceGPT = () => {
   const [responseText, setResponseText] = React.useState(""); // text response from GPT-3
   const { transcript, listening, resetTranscript } = useSpeechRecognition();
   const [audioState, setAudioState] = React.useState(""); // idle, playing, pause
-
+  
   const stopListening = () => {
-    SpeechRecognition.stopListening();
     socket.emit("send_transcript", transcript);
   };
 
@@ -70,6 +69,12 @@ const VoiceGPT = () => {
     }
   }, [audio]);
 
+  useEffect(() => {
+    if (!listening && transcript) {
+      stopListening();
+    }
+  }, [listening])
+
   return (
     <div className="wrapper">
       {audio && <audio src={audio} id="audio_playback"></audio>}
@@ -102,24 +107,36 @@ const VoiceGPT = () => {
             disabled={botState === "speaking" || listening}
             onClick={() => {
               resetTranscript();
-              SpeechRecognition.startListening({ continuous: true });
+              setResponseText("");  
+              SpeechRecognition.startListening({ continuous: false });
             }}
           >
-            Start
+            Speak
           </button>
-          <button
+          {/* <button
             className="stop_button button"
             disabled={!listening}
             onClick={stopListening}
           >
             Stop
-          </button>
+          </button> */}
           <button
-            className="stop_button button"
+            className="pause_button button"
             disabled={botState !== "speaking" || listening}
             onClick={changeAudioState}
           >
             {audioState === "playing" ? "Pause" : "Resume"}
+          </button>
+          <button
+            className="reset_button button"
+            disabled={botState !== "speaking"}
+            onClick={() => {
+              setBotState("idle");
+              setAudio(null);
+              setResponseText("");
+            }}
+          >
+            Reset
           </button>
         </div>
         {responseText && (
