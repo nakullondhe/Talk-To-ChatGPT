@@ -20,7 +20,10 @@ const getSpeech = async (text) => {
     const writeFile = util.promisify(fs.writeFile);
     await writeFile("output.mp3", response.audioContent, "binary");
   } catch (error) {
-    console.log('Text-to-Speech API Error: ', error.message || error.code || error);
+    console.log(
+      "Text-to-Speech API Error: ",
+      error.message || error.code || error
+    );
   }
 };
 
@@ -45,7 +48,7 @@ const getGPTResponse = async (transcript) => {
     });
     return response.data.choices[0].text;
   } catch (error) {
-    console.log('GPT-3 API Error: ', error.message || error.code || error);
+    console.log("GPT-3 API Error: ", error.message || error.code || error);
   }
 };
 
