@@ -4,7 +4,7 @@ const fs = require("fs");
 const util = require("util");
 
 const project_id = "studious-stack-390320";
-const keyFilename = "studious-stack-390320-b5b1c44467cf.json";
+const keyFilename = "../studious-stack-390320-b5b1c44467cf.json";
 const client = new textToSpeech.TextToSpeechClient({ project_id, keyFilename });
 
 // Convert text to speech using Google Cloud Text-to-Speech API
