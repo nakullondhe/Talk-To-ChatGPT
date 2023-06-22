@@ -10,11 +10,12 @@ In this project, you will build a bot using Node.js which joins Zoom meetings, i
 Due to unavailability of API resources or features by zoom to get access to raw audio (Only available in Windows SDK) . I have implemented a Talk To GPT separately.
 
 #### Implementation
-
  - Take Voice Input from user
- - Convert voice to text and send it to ChatGPT for response.
- - Convert the text response to audio.
+ - When user stops speaking, get transcription and send it to ChatGPT for response.
+ - Convert the text response to audio using Google cloud Text-To-Speech API.
  - Play audio on the client as a response from GPT.
+
+
 #### Technology used 
  - React
  - Nodejs
