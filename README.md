@@ -1,3 +1,4 @@
+*Please use VPN if you are using JIO network*
 # Talk-To-GPT
 
 Deployed On Render.com - https://talktogpt.onrender.com/
